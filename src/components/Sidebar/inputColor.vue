@@ -1,11 +1,11 @@
     <template>
         <div class="color_wrap">
     
-            <div class="input_color black" data-value="black" @click="getColor" v-bind:class="{ active: isActive }"></div> 
-            <div class="input_color grey" data-value="grey" @click="getColor" v-bind:class="{ active: isActive }"></div>
-            <div class="input_color blue" data-value="blue" @click="getColor" v-bind:class="{ active: isActive }"></div>
-            <div class="input_color red" data-value="red" @click="getColor" v-bind:class="{ active: isActive }"></div>
-            <div class="input_color white" data-value="white" @click="getColor" v-bind:class="{ active: isActive }"></div>
+            <div class="input_color black" data-value="black" @click="getColor" v-bind:class="{ activeBlack: isActiveBlack }"></div> 
+            <div class="input_color grey" data-value="grey" @click="getColor" v-bind:class="{ active: isActiveGrey }"></div>
+            <div class="input_color blue" data-value="blue" @click="getColor" v-bind:class="{ active: isActiveBlue }"></div>
+            <div class="input_color red" data-value="red" @click="getColor" v-bind:class="{ active: isActiveRed }"></div>
+            <div class="input_color white" data-value="white" @click="getColor" v-bind:class="{ active: isActiveWhite }"></div>
     </div>
     </template>
 
@@ -14,7 +14,11 @@ export default {
   data() {
     return {
       input_color: [],
-      isActive: false
+      isActiveBlack: false,
+      isActiveGrey: false,
+      isActiveBlue: false,
+      isActiveRed: false,
+      isActiveWhite: false
     };
   },
   updated() {
@@ -25,9 +29,26 @@ export default {
     //récupère la couleur cliquée
     getColor(event) {
       let selectedColor = event.srcElement.getAttribute("data-value");
-      this.isActive = !this.isActive;
+      //
+
+      console.log(this.isActiveblue);
+      this.toggleActive(event.srcElement.getAttribute("data-value"));
       this.listInputColors(selectedColor);
       //   console.log(this.input_color);
+    },
+
+    toggleActive(color) {
+      if (color === "black") {
+        this.isActiveBlack = !this.isActiveBlack;
+      } else if (color === "blue") {
+        this.isActiveBlue = !this.isActiveBlue;
+      } else if (color === "grey") {
+        this.isActiveGrey = !this.isActiveGrey;
+      } else if (color === "red") {
+        this.isActiveRed = !this.isActiveRed;
+      } else if (color === "white") {
+        this.isActiveWhite = !this.isActiveWhite;
+      }
     },
     //ajoute la couleur cliquée dans input_color, ou l'enlève s'il s'agit d'un second click
     listInputColors(color) {
@@ -76,6 +97,9 @@ export default {
 }
 .active {
   border: black 2px solid;
+}
+.activeBlack {
+  border: grey 2px solid;
 }
 </style>
 

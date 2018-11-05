@@ -23,6 +23,9 @@ export default {
 </script>
 
 <style lang="scss">
+h1 {
+  margin: 40px;
+}
 .produits {
   display: flex;
   height: auto;

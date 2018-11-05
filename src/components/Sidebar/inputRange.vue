@@ -1,9 +1,9 @@
     <template>
         <div>
-            <span>0 € </span>
+            
         <input type="range" min="0" max="40" v-model="price_limit">   
-        <span>40 € </span>
-        <p>{{this.price_limit}} €</p>
+        
+        <p class="text_sidebar">{{this.price_limit}} €</p>
     </div>
     </template>
 
@@ -11,7 +11,7 @@
 export default {
   data() {
     return {
-      price_limit: 0
+      price_limit: 40
     };
   },
   updated() {

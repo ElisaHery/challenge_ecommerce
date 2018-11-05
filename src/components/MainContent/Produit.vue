@@ -3,8 +3,9 @@
  <div class="produit"  v-for="(product, n) in products" :key="n" 
  >
  <!-- v-if="this.price_limit > product.price"  -->
+ <img class="image" :src="product.src">
 <p class="product_name">{{product.name}}</p>
-<img class="image" :src="product.src">
+
 <p class="product_price">{{product.price}} €</p>
 
     </div>
@@ -20,12 +21,6 @@ export default {
     };
   },
   props: ["products"],
-  //   created() {
-  //     this.$ebus.$on("price_limit", payload => {
-  //       this.price_limit = payload;
-  //       console.log(this.price_limit);
-  //     });
-  //   },
 
   methods: {
     getLimit(msg_name) {
@@ -43,28 +38,32 @@ export default {
 
 <style lang="scss">
 .under_main {
+  cursor: pointer;
   display: flex;
   flex-wrap: wrap;
   height: 100%;
   width: 100%;
 }
 .product_name {
-  color: white;
+  color: black;
   margin: 5px;
 }
 .product_price {
-  color: white;
+  color: black;
   margin: 3px;
 }
-
 .produit {
-  background: black;
-  height: 240px;
+  background: white;
+  height: 320px;
   margin: 10px;
   width: 250px;
 }
 
 .image {
-  height: 170px;
+  height: 250px;
+  transition: 0.3s;
+  &:hover {
+    height: 300px;
+  }
 }
 </style>

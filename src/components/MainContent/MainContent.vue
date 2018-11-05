@@ -11,53 +11,88 @@ export default {
     return {
       products: [
         {
-          name: "tshirt1",
+          name: "Tshirt 'Appelle moi Dieu'",
           price: 20,
           src: require("@/assets/tshirt1.jpg"),
           theme: "autres",
           color: "blue"
         },
         {
-          name: "tshirt2",
+          name: "Tshirt 'saucisson'",
           price: 30,
           src: require("@/assets/tshirt2.jpg"),
-          theme: "alcool",
+          theme: "autres",
           color: "red"
         },
         {
-          name: "tshirt3",
+          name: "Tshirt 'Pile en retard'",
           price: 15,
           src: require("@/assets/tshirt3.jpg"),
           theme: "autres",
           color: "white"
         },
         {
-          name: "tshirt4",
+          name: "Tshirt 'week-end à Rhum'",
           price: 25,
           src: require("@/assets/tshirt4.jpg"),
           theme: "alcool",
           color: "blue"
         },
         {
-          name: "tshirt5",
+          name: "Tshirt 'A comme Apéro'",
           price: 25,
           src: require("@/assets/tshirt5.jpg"),
           theme: "alcool",
           color: "blue"
         },
         {
-          name: "tshirt8",
+          name: "Tshirt 'Abdos Kro'",
+          price: 28,
+          src: require("@/assets/tshirt6.jpg"),
+          theme: "alcool",
+          color: "blue"
+        },
+        {
+          name: "Tshirt 'In saucisson we trust'",
+          price: 25,
+          src: require("@/assets/tshirt7.jpg"),
+          theme: "autres",
+          color: "white"
+        },
+        {
+          name: "Tshirt 'amour et football'",
           price: 35,
           src: require("@/assets/tshirt8.jpg"),
           theme: "football",
           color: "grey"
         },
         {
-          name: "tshirt11",
+          name: "Tshirt 'pas besoin d'abdos",
+          price: 25,
+          src: require("@/assets/tshirt9.jpg"),
+          theme: "autres",
+          color: "white"
+        },
+        {
+          name: "Tshirt 'Attaquant de pinte'",
+          price: 19,
+          src: require("@/assets/tshirt10.jpg"),
+          theme: "alcool",
+          color: "grey"
+        },
+        {
+          name: "Tshirt '1998-2018'",
           price: 40,
           src: require("@/assets/tshirt11.jpg"),
           theme: "football",
           color: "blue"
+        },
+        {
+          name: "Tshirt 'Super papa'",
+          price: 25,
+          src: require("@/assets/tshirt14.jpg"),
+          theme: "papa",
+          color: "white"
         }
       ],
       price_limit: "",
@@ -98,7 +133,7 @@ export default {
         this.checked_colors.length === 0
       ) {
         return this.products.filter(product => {
-          return product.price > this.price_limit;
+          return product.price <= this.price_limit;
         });
         //filtre thème seul actif
       } else if (
@@ -128,7 +163,7 @@ export default {
       ) {
         return this.products.filter(product => {
           return (
-            product.price > this.price_limit &&
+            product.price <= this.price_limit &&
             this.checked_themes.includes(product.theme)
           );
         });
@@ -141,7 +176,7 @@ export default {
       ) {
         return this.products.filter(product => {
           return (
-            product.price > this.price_limit &&
+            product.price <= this.price_limit &&
             this.checked_colors.includes(product.color)
           );
         });
@@ -163,7 +198,7 @@ export default {
       } else {
         return this.products.filter(product => {
           return (
-            product.price > this.price_limit &&
+            product.price <= this.price_limit &&
             this.checked_themes.includes(product.theme) &&
             this.checked_colors.includes(product.color)
           );
@@ -181,7 +216,7 @@ export default {
 
 <style lang="scss">
 .main {
-  background: grey;
+  background: white;
   display: flex;
   height: auto;
   margin: 10px;
